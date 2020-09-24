@@ -61,6 +61,9 @@ namespace SportsORM.Controllers
             //...all teams, ordered alphabetically by location
             // ViewBag.TeamsQueries = sportsContext.Teams.OrderBy(t => t.Location).ThenBy(t=>t.TeamName); 
 
+
+            //ViewBag.TeamsQueries = sportsContext.Teams.Reverse().ToList();     //cannot get Reverse() to work no matter what
+
             //...all teams, ordered by team name in reverse alphabetical order
             ViewBag.TeamsQueries = sportsContext.Teams.Include(t => t.CurrLeague)
                                                       .OrderByDescending(t => t.TeamName)
@@ -83,13 +86,7 @@ namespace SportsORM.Controllers
             // ViewBag.TeamCount = teamCount;
             ViewBag.TeamCount = sportsContext.Teams.Count();
 
-            //
-            // ViewBag.PracticeLINQ = sportsContext.Teams.Join.....();                                     
-
-            //
-            // ViewBag.PracticeLINQ = sportsContext.Teams.OrderBy(t => t.TeamName).ThenBy(t=>t.Location);        
-
-            // return View();  //Used With ViewBag; commented out now so I can use my ViewModel below
+            // return View();       //Used With ViewBag; commented out now so I can use my ViewModel below
 
             IEnumerable<Player> filteredModelPlayer = sportsContext.Players
                                                                 .Where(p => p.FirstName == "Alexander" || p.FirstName == "Wyatt");
