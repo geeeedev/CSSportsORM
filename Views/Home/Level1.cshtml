@@ -1,0 +1,137 @@
+@{
+    ViewData["Title"] = "Level 1";
+}
+
+<div class="well">
+    <p>Using the SportsORM, complete all the following queries and show their results on Level1.cshtml.</p>
+    <ol>
+        <li>...all womens' leagues</li>
+        <li>...all leagues where sport is any type of hockey</li>
+        <li>...all leagues where sport is something OTHER THAN football</li>
+        <li>...all leagues that call themselves "conferences"</li>
+        <li>...all leagues in the Atlantic region</li>
+        <li>...all teams based in Dallas</li>
+        <li>...all teams named the Raptors</li>
+        <li>...all teams whose location includes "City"</li>
+        <li>...all teams whose names begin with "T"</li>
+        <li>...all teams, ordered alphabetically by location</li>
+        <li>...all teams, ordered by team name in reverse alphabetical order</li>
+        <li>...every player with last name "Cooper"</li>
+        <li>...every player with first name "Joshua"</li>
+        <li>...every player with last name "Cooper" EXCEPT those with "Joshua" as the first name</li>
+        <li>...all players with first name "Alexander" OR first name "Wyatt"</li>
+    </ol>
+</div>
+
+<div>
+    <div class="col-sm-6 " >
+        <h3>All Women's Leagues</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>League Name</th>
+                <th>League Sport</th>
+            </tr>
+            @foreach(var l in ViewBag.AllWomensLeague)
+            {
+                <tr>
+                    <td>@l.Name</td>
+                    <td>@l.Sport</td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="col-sm-6 " >
+        <h3>Leagues Queries</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>League Name</th>
+                <th>League Sport</th>
+            </tr>
+            @foreach(var l in ViewBag.LeaguesQueries)
+            {
+                <tr>
+                    <td>@l.Name</td>
+                    <td>@l.Sport</td>
+                </tr>
+            }
+        </table>
+    </div> 
+
+    <div class="col-sm-6 " >
+        <h3>Teams Queries</h3> <small>Count: @ViewBag.TeamCount</small>
+        <table class="table table-striped">
+            <tr>
+                <th>Team Name</th>
+                <th>Team Location</th>
+                <th>Current League</th>
+            </tr>
+            @foreach(var t in ViewBag.TeamsQueries)
+            {
+                <tr>
+                    <td>@t.TeamName</td>
+                    <td>@t.Location</td>
+                    <td>@t.CurrLeague.Name</td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="col-sm-6 " >
+        <h3>Players Queries</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Current Team</th>
+            </tr>
+            @foreach(var p in ViewBag.PlayersQueries)
+            {
+                <tr>
+                    <td>@p.FirstName</td>
+                    <td>@p.LastName</td>
+                    <td>@p.CurrTeam.TeamName</td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    @* //Trying with ViewModel instead of ViewBag *@
+    @model IEnumerable<Player>
+    <div class="col-sm-6 " >
+        <h3>Using ViewModel instead of ViewBag</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Team Name</th>
+                <th>Team Location</th>
+            </tr>
+            @foreach(var p in Model)
+            {
+                <tr>
+                    <td>@p.FirstName </td>
+                    <td>@p.LastName </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+
+
+
+@* <div class="col-sm-6">
+        <h3>All Baseball Leagues</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>League Name</th>
+                <th>League Sport</th>
+            </tr>
+            @foreach(var l in ViewBag.BaseballLeagues)
+            {
+                <tr>
+                    <td>@l.Name</td>
+                    <td>@l.Sport</td>
+                </tr>
+            }
+        </table>
+    </div> *@
+</div>
