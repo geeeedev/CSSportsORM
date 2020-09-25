@@ -19,13 +19,114 @@
 
 
 
+<div class="col-sm-6">
+    <h3>Leagues Queries - ViewBag</h3>
+    <table class="table table-striped">
+        @foreach(var l in ViewBag.LeaguesQueries)
+        {
+            <tr>
+                <th>@l.Name's Team</th>
+                <th>Team Location</th>
+            </tr>
+            @foreach(var t in l.Teams){
+                <tr>
+                    <td>@t.TeamName</td>
+                    <td>@t.Location</td>
+                </tr>
+            }
+        }
+        
+    </table>
+</div>
+
+@* @model IEnumerable<League>  //only one @model per cshtml
+<div class="col-sm-6">
+    <h3>Leagues Queries - Model </h3>
+    <table class="table table-striped">
+        // Beware: Model is the LIST of League 
+        @foreach(var l in Model)        
+        {
+            <tr>
+                <th>@l.Name's Team</th>
+                <th>Team Location</th>
+            </tr>
+            // And Teams are INSIDE each League, not directly under Model!! 
+            // Essentially, second loop is same as ViewBag structure 
+            @foreach(var t in l.Teams){
+                <tr>
+                    <td>@t.TeamName</td>
+                    <td>@t.Location</td>
+                </tr>
+            }
+        }
+        
+    </table>
+</div>  *@
 
 
 
+<div class="col-sm-6">
+    <h3>Team Queries - ViewBag</h3>
+    <table class="table table-striped">
+        @foreach(var t in ViewBag.TeamQueries)
+        {
+            <tr>
+                <th>@t.Location  @t.TeamName </th>
+                <th> </th>
+            </tr>
+            @foreach(var p in t.CurrPlayers){
+                <tr>
+                    <td>@p.FirstName</td>
+                    <td>@p.LastName</td>
+                </tr>
+            }
+        }
+    </table>
+</div> 
 
+@* @model IEnumerable<Team>
+<div class="col-sm-6">
+    <h3>Team Queries - Model </h3>
+    <table class="table table-striped">
+        @foreach(var t in Model)
+        {
+            <tr>
+                <th>@t.Location  @t.TeamName </th>
+                <th> </th>
+            </tr>
+            @foreach(var p in t.CurrPlayers){
+                <tr>
+                    <td>@p.FirstName</td>
+                    <td>@p.LastName</td>
+                </tr>
+            }
+        }
+    </table>
+</div>  *@
 
-
-
+@model IEnumerable<League>  //only one @model per cshtml
+<div class="col-sm-6">
+    <h3>Leagues Queries - Model </h3>
+    <table class="table table-striped">
+        @* // Beware: Model is the LIST of League  *@
+        @foreach(var l in Model)        
+        {
+            <tr>
+                <th>@l.Name's Team</th>
+                <th>Team Location</th>
+            </tr>
+            // And Teams are INSIDE each League, not directly under Model!! 
+            // Essentially, second loop is same as ViewBag structure 
+            @foreach(var t in l.Teams){
+                <tr>
+                    <td>@t.TeamName</td>
+                    <td>@t.Location</td>
+                </tr>
+            }
+        }
+        
+    </table>
+</div> 
 
 
 
