@@ -39,7 +39,7 @@
     </table>
 </div>
 
-@* @model IEnumerable<League>  //only one @model per cshtml
+@* @model IEnumerable<League>  //modelIEnumLeague  //only one @model per cshtml page
 <div class="col-sm-6">
     <h3>Leagues Queries - Model </h3>
     <table class="table table-striped">
@@ -84,7 +84,7 @@
     </table>
 </div> 
 
-@* @model IEnumerable<Team>
+@*@model IEnumerable<Team>   //modelIEnumTeam
 <div class="col-sm-6">
     <h3>Team Queries - Model </h3>
     <table class="table table-striped">
@@ -104,11 +104,11 @@
     </table>
 </div>  *@
 
-@model IEnumerable<League>  //only one @model per cshtml
+@* @model IEnumerable<League>  //modelIEnum2 X3   //only one @model per cshtml
 <div class="col-sm-6">
     <h3>Leagues Queries - Model </h3>
     <table class="table table-striped">
-        @* // Beware: Model is the LIST of League  *@
+        @* // Beware: Model is the LIST of League  
         @foreach(var l in Model)        
         {
             <tr>
@@ -124,29 +124,88 @@
                 </tr>
             }
         }
-        
     </table>
-</div> 
+</div>  *@
 
-
-
-
-
-
-
-@* <div class="col-sm-6">
-        <h3>All Baseball Leagues</h3>
-        <table class="table table-striped">
+@* @model IEnumerable<Player>  //modelIEnum3   //only one @model per cshtml
+<div class="col-sm-6">
+    <h3>Player Queries - Model </h3>
+    <table class="table table-striped">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Curr Team</th>
+        </tr>
+        @foreach(var p in Model){
             <tr>
-                <th>League Name</th>
-                <th>League Sport</th>
+                <td>@p.FirstName</td>
+                <td>@p.LastName</td>
+                <td>@p.CurrTeam.TeamName</td>
             </tr>
-            @foreach(var l in ViewBag.BaseballLeagues)
-            {
+        }
+    </table>
+</div>  *@
+
+
+@* @model IEnumerable<Player>  //modelIEnum4   //only one @model per cshtml
+<div class="col-sm-6">
+    <h3>Team Queries - Model </h3>
+    <table class="table table-striped">
+        <tr>
+            <th>Player</th>
+            <th>Curr Team</th>
+            <th>Team Loaction</th>
+            
+        </tr>
+            @foreach(var p in Model.Where(p => p.CurrTeam.TeamName != "Raptors")){  //difficult to use ViewBag with .Where
                 <tr>
-                    <td>@l.Name</td>
-                    <td>@l.Sport</td>
+                    <td>@p.FirstName @p.LastName</td>
+                    <td>@p.CurrTeam.TeamName</td>
+                    <td>@p.CurrTeam.Location</td>
                 </tr>
             }
-        </table>
-    </div> *@
+    </table>
+</div>  *@
+
+@* @model IEnumerable<Team>  //modelIEnum5   //only one @model per cshtml
+<div class="col-sm-6">
+    <h3>Team Queries - Model </h3>
+    <table class="table table-striped">
+        @foreach(var t in Model){
+        <tr>
+            <th>Players on @t.Location @t.TeamName</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+            @foreach(var p in t.CurrPlayers){
+                <tr>
+                    <td>@p.CurrTeam.TeamName</td>
+                    <td>@p.FirstName</td>
+                    <td>@p.LastName</td>
+                </tr>
+            }
+        }
+        
+    </table>
+</div>  *@
+
+
+@model IEnumerable<Team>  //modelIEnum6   //only one @model per cshtml
+<div class="col-sm-6">
+    <h3>Team Queries - Model </h3>
+    <table class="table table-striped">
+        <tr>
+            <th>Team</th>
+            <th>Loaction</th>
+            <th># of Players</th>
+            
+        </tr>
+            @foreach(var t in Model){
+                <tr>
+                    <td>@t.TeamName</td>
+                    <td>@t.Location</td>
+                    <td>@t.CurrPlayers.Count</td>
+                </tr>
+            }
+    </table>
+</div> 
