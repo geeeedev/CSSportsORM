@@ -25,6 +25,7 @@ namespace SportsORM.Controllers
             "Atlantic Amateur Field Hockey League,Field Hockey",
             "Transamerican Womens' Football Athletics Conference,Football",
             "Pacific Ice Hockey Conference,Ice Hockey"
+            // "WFTDA - No Team data, Roller Derby"
         };
 
         private static string[] teams = {
@@ -78,6 +79,7 @@ namespace SportsORM.Controllers
             "Golden State,Raptors,5",
             "Kansas City,Spurs,8",
             "Colorado,Twins,9"
+            // "California,ACDG, "
         };
 
         private static string[] players = {
@@ -206,7 +208,7 @@ namespace SportsORM.Controllers
             "Caleb,Collins,22",
             "Ryan,Gonzales,13",
             "Joseph,Roberts,24",
-            "Olivia,Diaz,2",
+            "Olivia,Diaz,",     //2
             "Carter,Adams,32",
             "Alexander,Adams,26",
             "David,Watson,20",
@@ -274,7 +276,7 @@ namespace SportsORM.Controllers
             "Joseph,Parker,31",
             "Elijah,Richardson,34",
             "Emily,Jackson,38",
-            "Christopher,Wood,2",
+            "Christopher,Wood,",  //2
             "Olivia,Young,45",
             "Abigail,Torres,6",
             "Caleb,Johnson,26",
