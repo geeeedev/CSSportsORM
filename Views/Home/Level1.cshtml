@@ -62,6 +62,7 @@
         <h3>Teams Queries</h3> <small>Count: @ViewBag.TeamCount</small>
         <table class="table table-striped">
             <tr>
+                <th>Team ID</th>
                 <th>Team Name</th>
                 <th>Team Location</th>
                 <th>Current League</th>
@@ -69,6 +70,7 @@
             @foreach(var t in ViewBag.TeamsQueries)
             {
                 <tr>
+                    <td>@t.TeamId</td>
                     <td>@t.TeamName</td>
                     <td>@t.Location</td>
                     <td>@t.CurrLeague.Name</td>
