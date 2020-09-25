@@ -5,7 +5,6 @@ While I know the basics of LINQ, I need to practice the complicated scenaios whi
 
 &nbsp;  
 &nbsp;  
-&nbsp;  
 
 # Sports ORM
 
