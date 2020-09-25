@@ -12,6 +12,6 @@ namespace SportsORM.Models
         public int LeagueId {get;set;}
         public League CurrLeague {get;set;}
         public List<Player> CurrPlayers {get;set;}
-        public List<PlayerTeam> AllPlayers {get;set;}  //All Players thru-out
+        public List<PlayerTeam> PastPlayers {get;set;}  //All Players thru-out
     }
 } 

@@ -11,6 +11,6 @@ namespace SportsORM.Models
         public string LastName {get;set;}
         public int TeamId {get;set;}
         public Team CurrTeam {get;set;}
-        public List<PlayerTeam> AllTeams {get;set;}  //Player's Teams thru-out
+        public List<PlayerTeam> PastTeams {get;set;}  //Player's Teams thru-out
     }
 } 
