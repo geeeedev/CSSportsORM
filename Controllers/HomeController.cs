@@ -183,20 +183,33 @@ namespace SportsORM.Controllers
             // return View(IEnum2);
 
             //...all players who were formerly (but aren't currently) with the Wichita Vikings
-            IEnumerable<Team> IEnum3 = sportsContext.Teams.Where(t => t.Location == "Wichita" && t.TeamName == "Vikings")
-                                                            // .Include(t => t.CurrPlayers)
-                                                            .Include(t => t.PastPlayers)
-                                                            .ThenInclude(pp => pp.PastPlayerOnTeam);
-            return View(IEnum3);
+            // IEnumerable<Team> IEnum3 = sportsContext.Teams.Where(t => t.Location == "Wichita" && t.TeamName == "Vikings")
+            //                                                 // .Include(t => t.CurrPlayers)
+            //                                                 .Include(t => t.PastPlayers)
+            //                                                 .ThenInclude(pp => pp.PastPlayerOnTeam);
+            // return View(IEnum3);
 
             //...every team that Emily Sanchez played for before she joined the Indiana Royals
-
+            // IEnumerable<Player> IEnum4 = sportsContext.Players.Where(p => p.FirstName == "Emily" && p.LastName =="Sanchez")
+            //                                                     // .Include(p => p.CurrTeam)
+            //                                                     .Include(p => p.PastTeams)
+            //                                                     .ThenInclude( pt => pt.PastTeamOfPlayer );
+            
+            // return View(IEnum4);
 
             //...everyone named "Levi" who has ever played in the Atlantic Federation of Amateur Baseball Players
 
 
             //...all players, sorted by the number of teams they've played for
-
+            IEnumerable<Player> IEnum6 = sportsContext.Players//.Include(p => p.CurrTeam)
+                                                                .Include(p => p.PastTeams)
+                                                                .ThenInclude( pt => pt.PastTeamOfPlayer )
+                                                                .OrderByDescending( p => p.PastTeams.Count)
+                                                                .ThenBy(p => p.PlayerId);
+                                                                
+                                                                
+            
+            return View(IEnum6);
 
 
             // return View();
