@@ -169,21 +169,25 @@ namespace SportsORM.Controllers
         {
             //...all teams, past and present, that Alexander Bailey has played with
             // IEnumerable<Player> IEmum1 = sportsContext.Players.Where(p => p.FirstName == "Alexander" || p.FirstName =="Isabella" && p.LastName == "Bailey" || p.LastName == "Lewis")  //produces diff result - "FoundMany || NotFound || FoundMany"
-            IEnumerable<Player> IEnum1 = sportsContext.Players.Where(p => (p.FirstName == "Alexander" || p.FirstName =="Lucas") && (p.LastName == "Bailey" || p.LastName == "Lewis"))
-                                                                .Include(p => p.CurrTeam)
-                                                                .Include(p => p.PastTeams)
-                                                                .ThenInclude( pt => pt.PastTeamOfPlayer);
+            // IEnumerable<Player> IEnum1 = sportsContext.Players.Where(p => (p.FirstName == "Alexander" || p.FirstName =="Lucas") && (p.LastName == "Bailey" || p.LastName == "Lewis"))
+            //                                                     .Include(p => p.CurrTeam)
+            //                                                     .Include(p => p.PastTeams)
+            //                                                     .ThenInclude( pt => pt.PastTeamOfPlayer);
             // return View(IEnum1);
 
             //...all players, past and present, with the Manitoba Tiger-Cats
-            IEnumerable<Team> IEnum2 = sportsContext.Teams.Where(t => t.Location == "Manitoba" && t.TeamName == "Tiger-Cats")
-                                                            .Include(t => t.CurrPlayers)
-                                                            .Include(t => t.PastPlayers)
-                                                            .ThenInclude(pp => pp.PastPlayerOnTeam);
-            return View(IEnum2);
+            // IEnumerable<Team> IEnum2 = sportsContext.Teams.Where(t => t.Location == "Manitoba" && t.TeamName == "Tiger-Cats")
+            //                                                 .Include(t => t.CurrPlayers)
+            //                                                 .Include(t => t.PastPlayers)
+            //                                                 .ThenInclude(pp => pp.PastPlayerOnTeam);
+            // return View(IEnum2);
 
             //...all players who were formerly (but aren't currently) with the Wichita Vikings
-
+            IEnumerable<Team> IEnum3 = sportsContext.Teams.Where(t => t.Location == "Wichita" && t.TeamName == "Vikings")
+                                                            // .Include(t => t.CurrPlayers)
+                                                            .Include(t => t.PastPlayers)
+                                                            .ThenInclude(pp => pp.PastPlayerOnTeam);
+            return View(IEnum3);
 
             //...every team that Emily Sanchez played for before she joined the Indiana Royals
 
