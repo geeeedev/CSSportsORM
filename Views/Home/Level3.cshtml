@@ -17,7 +17,7 @@
 
  @* @model IEnumerable<Player>  //IEnum1 - Output Version1
  <div class="col-sm-6">
-        <h3>All Teams Past/Present</h3>
+        <h3>IEnum1 v1</h3>
         <table class="table table-striped">
             <tr>
                 <th>Player ID</th>
@@ -41,13 +41,13 @@
                             <th>Team ID</th>
                             <th>First Name</th>
                             <th>Last Name</th>  //
-                            @foreach (var t in p.PastTeams)
+                            @foreach (var pptl in p.PastPlayerTeamList)
                             {
                                 <tr>
-                                    <td>@t.PastTeamOfPlayer.TeamName</td>
-                                    <td>@t.PastTeamOfPlayer.TeamId</td>
-                                    @* <td>@t.PlayerOnTeam.FirstName</td> //
-                                    @* <td>@t.PlayerOnTeam.LastName</td> //
+                                    <td>@pptl.PastTeam.TeamName</td>
+                                    <td>@pptl.PastTeam.TeamId</td>
+                                    @* <td>@pptl.PastPlayer.FirstName</td> //
+                                    @* <td>@pptl.PastPlayer.LastName</td> //
                                 </tr>
                             }
                         </table>
@@ -59,7 +59,7 @@
 
  @* @model IEnumerable<Player>  //IEnum1 - Output Version2
  <div class="col-sm-6">
-        <h3>All Teams Past/Present</h3>
+        <h3>IEnum1 v2</h3>
         <table class="table table-striped">
             <tr>
                 <th>Player ID</th>
@@ -80,13 +80,13 @@
                                 <td>@p.CurrTeam.TeamId</td>
                                 <td>Curr</td>
                             </tr>
-                            @foreach (var t in p.PastTeams)
+                            @foreach (var pptl in p.PastPlayerTeamList)
                             {
                                 <tr>
-                                    <td>@t.PastTeamOfPlayer.TeamName</td>
-                                    <td>@t.PastTeamOfPlayer.TeamId</td>
-                                    @* <td>@t.PlayerOnTeam.FirstName</td> //
-                                    @* <td>@t.PlayerOnTeam.LastName</td> //
+                                    <td>@pptl.PastTeam.TeamName</td>
+                                    <td>@pptl.PastTeam.TeamId</td>
+                                    @* <td>@pptl.PastPlayer.FirstName</td> //
+                                    @* <td>@pptl.PastPlayer.LastName</td> //
                                     <td> </td>
                                 </tr>
                             }
@@ -99,7 +99,7 @@
 
 @* @model IEnumerable<Team>  //IEnum2
  <div class="col-sm-6">
-        <h3>All Players Past/Present</h3>
+        <h3>IEnum2</h3>
         <table class="table table-striped">
             <tr>
                 <th>Location</th>
@@ -127,11 +127,11 @@
                                     <td>Y</td>
                                 </tr>
                             }
-                            @foreach (var pp in t.PastPlayers)  // each pp is a combo of Team/Player OBJ
+                            @foreach (var pptl in t.PastPlayerTeamList)  // each pp is a combo of Team/Player OBJ
                             {
                                 <tr>
-                                    <td>@pp.PastPlayerOnTeam.FirstName</td>
-                                    <td>@pp.PastPlayerOnTeam.LastName</td>
+                                    <td>@pptl.PastPlayer.FirstName</td>
+                                    <td>@pptl.PastPlayer.LastName</td>
                                     <td></td>
                                 </tr>
                             }
@@ -144,7 +144,7 @@
 
 @* @model IEnumerable<Team>  //IEnum3
 <div class="col-sm-6">
-    <h3>All Players Past Only</h3>
+    <h3>IEnum3</h3>
     <table class="table table-striped">
         <tr>
             <th>Location</th>
@@ -172,11 +172,11 @@
                                 <td>Y</td>
                             </tr>
                         }              //
-                        @foreach (var pp in t.PastPlayers)  // each pp is a combo of Team/Player OBJ
+                        @foreach (var pptl in t.PastPlayerTeamList)  // each pp is a combo of Team/Player OBJ
                         {
                             <tr>
-                                <td>@pp.PastPlayerOnTeam.FirstName</td>
-                                <td>@pp.PastPlayerOnTeam.LastName</td>
+                                <td>@pptl.PastPlayer.FirstName</td>
+                                <td>@pptl.PastPlayer.LastName</td>
                                 <td></td>
                             </tr>
                         }
@@ -189,7 +189,7 @@
 
  @* @model IEnumerable<Player>  //IEnum4 
  <div class="col-sm-6">
-        <h3>All Teams Past/Present</h3>
+        <h3>IEnum4</h3>
         <table class="table table-striped">
             <tr>
                 <th>Player ID</th>
@@ -211,14 +211,14 @@
                                 <td>@p.CurrTeam.TeamId</td>
                                 <td>Curr</td>
                             </tr>         // 
-                            @foreach (var t in p.PastTeams)
+                            @foreach (var pptl in p.PastPlayerTeamList)
                             {
                                 <tr>
-                                    <td>@t.PastTeamOfPlayer.Location</td>
-                                    <td>@t.PastTeamOfPlayer.TeamName</td>
-                                    <td>@t.PastTeamOfPlayer.TeamId</td>
-                                    @* <td>@t.PlayerOnTeam.FirstName</td> //
-                                    @* <td>@t.PlayerOnTeam.LastName</td> //
+                                    <td>@pptl.PastTeam.Location</td>
+                                    <td>@pptl.PastTeam.TeamName</td>
+                                    <td>@pptl.PastTeam.TeamId</td>
+                                    @* <td>@pptl.PastPlayer.FirstName</td> //
+                                    @* <td>@pptl.PastPlayer.LastName</td> //
                                     <td> </td>
                                 </tr>
                             }
@@ -229,9 +229,10 @@
         </table>
     </div>   *@
 
- @model IEnumerable<Player>  //IEnum6
+
+ @* @model IEnumerable<League>  //IEnum5
  <div class="col-sm-6">
-        <h3>All Teams Past/Present</h3>
+        <h3>IEnum5</h3>
         <table class="table table-striped">
             <tr>
                 <th>Player ID</th>
@@ -252,15 +253,15 @@
                                 <td>@p.CurrTeam.TeamName</td>
                                 <td>@p.CurrTeam.TeamId</td>
                                 <td>Curr</td>
-                            </tr> *@
-                            @foreach (var t in p.PastTeams)
+                            </tr>       //
+                            @foreach (var pptl in p.PastPlayerTeamList)
                             {
                                 <tr>
-                                    <td>@t.PastTeamOfPlayer.Location</td>
-                                    <td>@t.PastTeamOfPlayer.TeamName</td>
-                                    <td>@t.PastTeamOfPlayer.TeamId</td>
-                                    @* <td>@t.PlayerOnTeam.FirstName</td> //
-                                    @* <td>@t.PlayerOnTeam.LastName</td> //*@
+                                    <td>@pptl.PastTeam.Location</td>
+                                    <td>@pptl.PastTeam.TeamName</td>
+                                    <td>@pptl.PastTeam.TeamId</td>
+                                    @* <td>@pptl.PastPlayer.FirstName</td> //
+                                    @* <td>@pptl.PastPlayer.LastName</td> //
                                     <td> </td>
                                 </tr>
                             }
@@ -269,4 +270,128 @@
                 </tr>
             }
         </table>
+    </div>   *@
+
+
+@model IEnumerable<Player>  //IEnum5 
+ <div class="col-sm-6">
+        <h3>IEnum5 - IMPORTANT </h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Player ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Team</th>
+            </tr>
+            @foreach(var p in Model)
+            {
+                <tr>
+                    <td>@p.PlayerId</td>
+                    <td>@p.FirstName</td>
+                    <td>@p.LastName</td>
+                    <td>
+                        <table class="table">
+                            @* @foreach (var pptl in p.PastPlayerTeamList.Where(pptl => pptl.PastTeam.TeamName == "Atlantic Federation of Amateur Baseball Players")) *@ 
+                            @*All comments need to be above/outside of @foreach{}*@
+                            @foreach (var pptl in p.PastPlayerTeamList)  
+                            {
+                                <tr>
+                                    <td>@pptl.PastTeam.TeamName</td>
+                                    <td>@pptl.PastTeam.Location</td>
+                                    <td>@pptl.PastTeam.TeamId</td>
+                                    <td>@pptl.PastTeam.CurrLeague.Name</td>
+                                    <td>@pptl.PastPlayer.FirstName</td>
+                                    <td>@pptl.PastPlayer.LastName</td>
+
+                                </tr>
+                            }
+                        </table>
+                    </td>
+                </tr>
+            }
+        </table>
     </div>  
+
+ @* @model IEnumerable<Player>  //IEnum55
+ <div class="col-sm-6">
+        <h3>IEnum55 - IMPT</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Player ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Team</th>
+            </tr>
+            @foreach(var p in Model)
+            {
+                <tr>
+                    <td>@p.PlayerId</td>
+                    <td>@p.FirstName</td>
+                    <td>@p.LastName</td>
+                    <td>
+                        <table class="table">
+                            <tr>
+                                <td> @p.CurrTeam.TeamName</td>
+                                <td> @p.CurrTeam.Location</td>
+                                <td> @p.CurrTeam.TeamId</td>
+                                <td> @p.CurrTeam.CurrLeague.Name</td>
+                                <td> Curr Team</td>
+                            </tr>
+                            @foreach (var pptl in p.PastPlayerTeamList)
+                            {
+                                <tr>
+                                    <td>@pptl.PastTeam.TeamName</td>
+                                    <td>@pptl.PastTeam.Location</td>
+                                    <td>@pptl.PastTeam.TeamId</td>
+                                    <td>@pptl.PastTeam.CurrLeague.Name</td>
+                                </tr>
+                            }
+                        </table>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>   *@
+
+ @* @model IEnumerable<Player>  //IEnum6
+ <div class="col-sm-6">
+        <h3>IEnum6</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Player ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Team</th>
+            </tr>
+            @foreach(var p in Model)
+            {
+                <tr>
+                    <td>@p.PlayerId</td>
+                    <td>@p.FirstName</td>
+                    <td>@p.LastName</td>
+                    <td>
+                        <table class="table">
+                            @* <tr>
+                                <td>@p.CurrTeam.Location</td>
+                                <td>@p.CurrTeam.TeamName</td>
+                                <td>@p.CurrTeam.TeamId</td>
+                                <td>Curr</td>
+                            </tr>    //
+                            @foreach (var pptl in p.PastPlayerTeamList)
+                            {
+                                <tr>
+                                    <td>@pptl.PastTeam.Location</td>
+                                    <td>@pptl.PastTeam.TeamName</td>
+                                    <td>@pptl.PastTeam.TeamId</td>
+                                    @* <td>@pptl.PastPlayer.FirstName</td> //
+                                    @* <td>@pptl.PastPlayer.LastName</td> //
+                                    <td> </td>
+                                </tr>
+                            }
+                        </table>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>   *@
+
