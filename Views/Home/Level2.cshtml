@@ -41,7 +41,7 @@
 
 @* @model IEnumerable<League>  //modelIEnumLeague  //only one @model per cshtml page
 <div class="col-sm-6">
-    <h3>Leagues Queries - Model </h3>
+    <h3>Leagues Queries - Model - IEnumLeague </h3>
     <table class="table table-striped">
         // Beware: Model is the LIST of League 
         @foreach(var l in Model)        
@@ -65,6 +65,9 @@
 
 
 
+
+
+
 <div class="col-sm-6">
     <h3>Team Queries - ViewBag</h3>
     <table class="table table-striped">
@@ -84,11 +87,11 @@
     </table>
 </div> 
 
-@*@model IEnumerable<Team>   //modelIEnumTeam
+@*@model IEnumerable<Team>   //modelIEnumTeam   //diff from ViewBag
 <div class="col-sm-6">
-    <h3>Team Queries - Model </h3>
+    <h3>Team Queries - Model - IEnumTeam </h3>
     <table class="table table-striped">
-        @foreach(var t in Model)
+        @foreach(var t in Model)                //diff from ViewBag
         {
             <tr>
                 <th>@t.Location  @t.TeamName </th>
@@ -104,9 +107,15 @@
     </table>
 </div>  *@
 
-@* @model IEnumerable<League>  //modelIEnum2 X3   //only one @model per cshtml
+
+
+
+
+
+
+@* @model IEnumerable<League>  //modelIEnum21-22-23   //only one @model per cshtml
 <div class="col-sm-6">
-    <h3>Leagues Queries - Model </h3>
+    <h3>Leagues Queries - Model - IEnum2.x </h3>
     <table class="table table-striped">
         @* // Beware: Model is the LIST of League  
         @foreach(var l in Model)        
@@ -127,9 +136,16 @@
     </table>
 </div>  *@
 
+
+
+
+
+
+
+
 @* @model IEnumerable<Player>  //modelIEnum3   //only one @model per cshtml
 <div class="col-sm-6">
-    <h3>Player Queries - Model </h3>
+    <h3>Player Queries - Model - IEnum3 </h3>
     <table class="table table-striped">
         <tr>
             <th>First Name</th>
@@ -147,9 +163,16 @@
 </div>  *@
 
 
+
+
+
+
+
+
+
 @* @model IEnumerable<Player>  //modelIEnum4   //only one @model per cshtml
 <div class="col-sm-6">
-    <h3>Team Queries - Model </h3>
+    <h3>Team Queries - Model - IEnum4 </h3>
     <table class="table table-striped">
         <tr>
             <th>Player</th>
@@ -167,9 +190,14 @@
     </table>
 </div>  *@
 
+
+
+
+
+
 @* @model IEnumerable<Team>  //modelIEnum5   //only one @model per cshtml
 <div class="col-sm-6">
-    <h3>Team Queries - Model </h3>
+    <h3>Team Queries - Model - IEnum5 </h3>
     <table class="table table-striped">
         @foreach(var t in Model){
         <tr>
@@ -190,9 +218,13 @@
 </div>  *@
 
 
+
+
+
+
 @model IEnumerable<Team>  //modelIEnum6   //only one @model per cshtml
 <div class="col-sm-6">
-    <h3>Team Queries - Model </h3>
+    <h3>Team Queries - Model - IEnum6 </h3>
     <table class="table table-striped">
         <tr>
             <th>Team</th>
