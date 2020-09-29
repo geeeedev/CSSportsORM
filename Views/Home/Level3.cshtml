@@ -230,52 +230,12 @@
     </div>   *@
 
 
- @* @model IEnumerable<League>  //IEnum5
- <div class="col-sm-6">
-        <h3>IEnum5</h3>
-        <table class="table table-striped">
-            <tr>
-                <th>Player ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Team</th>
-            </tr>
-            @foreach(var p in Model)
-            {
-                <tr>
-                    <td>@p.PlayerId</td>
-                    <td>@p.FirstName</td>
-                    <td>@p.LastName</td>
-                    <td>
-                        <table class="table">
-                            @* <tr>
-                                <td>@p.CurrTeam.Location</td>
-                                <td>@p.CurrTeam.TeamName</td>
-                                <td>@p.CurrTeam.TeamId</td>
-                                <td>Curr</td>
-                            </tr>       //
-                            @foreach (var pptl in p.PastPlayerTeamList)
-                            {
-                                <tr>
-                                    <td>@pptl.PastTeam.Location</td>
-                                    <td>@pptl.PastTeam.TeamName</td>
-                                    <td>@pptl.PastTeam.TeamId</td>
-                                    @* <td>@pptl.PastPlayer.FirstName</td> //
-                                    @* <td>@pptl.PastPlayer.LastName</td> //
-                                    <td> </td>
-                                </tr>
-                            }
-                        </table>
-                    </td>
-                </tr>
-            }
-        </table>
-    </div>   *@
 
 
-@model IEnumerable<Player>  //IEnum5 
+
+ @model IEnumerable<Player>  //IEnum5 
  <div class="col-sm-6">
-        <h3>IEnum5 - IMPORTANT </h3>
+        <h3>IEnum5 v2 - IMPORTANT </h3>
         <table class="table table-striped">
             <tr>
                 <th>Player ID</th>
@@ -310,11 +270,11 @@
                 </tr>
             }
         </table>
-    </div>  
+    </div>   
 
  @* @model IEnumerable<Player>  //IEnum55
  <div class="col-sm-6">
-        <h3>IEnum55 - IMPT</h3>
+        <h3>IEnum55 - IMPORTANT </h3>
         <table class="table table-striped">
             <tr>
                 <th>Player ID</th>

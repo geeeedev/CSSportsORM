@@ -216,7 +216,7 @@ namespace SportsORM.Controllers
             //     .ThenInclude(pp => pp.PastPlayer);
             // return View(IEnum2);
 
-            // //...all players who were formerly (but aren't currently) with the Wichita Vikings
+            //...all players who were formerly (but aren't currently) with the Wichita Vikings
             // IEnumerable<Team> IEnum3 = sportsContext.Teams
             //     .Where(t => t.Location == "Wichita" && t.TeamName == "Vikings")
             //     // .Include(t => t.CurrPlayers)
@@ -260,7 +260,7 @@ namespace SportsORM.Controllers
             //     .ThenInclude(ptop => ptop.CurrLeague);
             // return View(IEnum55);
 
-            // //...all players, sorted by the number of teams they've played for
+            //...all players, sorted by the number of teams they've played for
             // IEnumerable<Player> IEnum6 = sportsContext.Players
             //     //.Include(p => p.CurrTeam)
             //     .Include(p => p.PastPlayerTeamList)
